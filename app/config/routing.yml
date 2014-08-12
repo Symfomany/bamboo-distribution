@@ -35,12 +35,10 @@ admin_media:
     prefix: /admin
 
 admin_login_check:
-    path:  /login_check
-    prefix: /admin
+    path:  /admin/login_check
 
 admin_logout:
-    path: /logout
-    prefix: /admin
+    path: /admin/logout
 
 store_core:
     resource: "@StoreCoreBundle/Resources/config/routing.yml"

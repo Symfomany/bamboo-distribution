@@ -45,6 +45,7 @@ doctrine:
 assetic:
     bundles:
         - AdminCoreBundle
+        - StoreCoreBundle
     debug:          "%kernel.debug%"
     use_controller: false
     filters:

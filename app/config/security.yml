@@ -1,10 +1,94 @@
+security:
+    firewalls:
+        dev:
+            context: store_context
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        customer_secured_area:
+            context: store_context
+            pattern: ^/
+            provider: customer
+            anonymous: true
+            security: true
+            form_login:
+                login_path: store_login
+                check_path: store_login_check
+                username_parameter: store_user_form_type_login[email]
+                password_parameter: store_user_form_type_login[password]
+            logout:
+                path:   store_logout
+                target: store_homepage
+                invalidate_session: false
+
+        dev:
+            #context: admin_context
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        login_area:
+            #context: admin_context
+            pattern: ^/admin/login$
+            anonymous: ~
+
+        password_area:
+            #context: admin_context
+            pattern: ^/admin/password.*$
+            anonymous: ~
+
+        admin_secured_area:
+            #context: admin_context
+            provider: adminuser
+            pattern: ^/?.*$
+            form_login:
+                login_path: admin_login
+                check_path: admin_login_check
+                username_parameter: admin_user_form_type_login[email]
+                password_parameter: admin_user_form_type_login[password]
+            logout:
+                path:   admin_logout
+                target: admin_homepage
+                invalidate_session: false
+
+    access_control:
+
+        # admin
+        login_area:
+            path: ^/admin/login.*
+            roles: IS_AUTHENTICATED_ANONYMOUSLY
+
+        password_area:
+            path: ^/admin/password.*
+            roles: IS_AUTHENTICATED_ANONYMOUSLY
+
+        admin_area:
+            path: ^/admin/.*
+            roles: ROLE_ADMIN
+
+        # store
+        customer_area:
+            path: /user/.*
+            roles: ROLE_CUSTOMER
+
+        checkout_area:
+            path: /checkout/.*
+            roles: ROLE_CUSTOMER
+
+        public_area:
+            path: /.*
+            roles: IS_AUTHENTICATED_ANONYMOUSLY
+
+
+
+
+
 imports:
     - { resource: @ElcodiUserBundle/Resources/security/encoders.yml }
     - { resource: @ElcodiUserBundle/Resources/security/providers.yml }
-    - { resource: @StoreUserBundle/Resources/security/firewalls.yml }
-    - { resource: @StoreUserBundle/Resources/security/accessControl.yml }
+    #- { resource: @StoreUserBundle/Resources/security/firewalls.yml }
+    #- { resource: @StoreUserBundle/Resources/security/accessControl.yml }
     - { resource: @StoreUserBundle/Resources/security/roles.yml }
-#    - { resource: @AdminUserBundle/Resources/security/firewalls.yml }
-#    - { resource: @AdminUserBundle/Resources/security/accessControl.yml }
-#    - { resource: @AdminUserBundle/Resources/security/roles.yml }
+    #- { resource: @AdminUserBundle/Resources/security/firewalls.yml }
+    #- { resource: @AdminUserBundle/Resources/security/accessControl.yml }
+    - { resource: @AdminUserBundle/Resources/security/roles.yml }
 
