@@ -24,11 +24,9 @@ class AppKernel extends Kernel
              */
             new \Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle(),
             new \Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
-            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new \Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new \Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new \JMS\SerializerBundle\JMSSerializerBundle(),
-            new \JMS\AopBundle\JMSAopBundle(),
-            new \JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+
             new \Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new \Mmoreram\ControllerExtraBundle\ControllerExtraBundle(),
             new \Ornicar\GravatarBundle\OrnicarGravatarBundle(),
