@@ -50,6 +50,7 @@ class AppKernel extends Kernel
             new \Elcodi\MediaBundle\ElcodiMediaBundle(),
             new \Elcodi\RuleBundle\ElcodiRuleBundle(),
             new \Elcodi\NewsletterBundle\ElcodiNewsletterBundle(),
+            new \Elcodi\MenuBundle\ElcodiMenuBundle(),
 
             /**
              * Elcodi store bundle
@@ -77,6 +78,11 @@ class AppKernel extends Kernel
             new \Elcodi\AdminNewsletterBundle\AdminNewsletterBundle(),
             new \Elcodi\AdminProductBundle\AdminProductBundle(),
             new \Elcodi\AdminRuleBundle\AdminRuleBundle(),
+
+            /*
+             * Local project bundles
+             */
+            new Elcodi\AdminExampleBundle\AdminExampleBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

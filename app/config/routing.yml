@@ -1,3 +1,6 @@
+#
+# Imported routes from bamboo-admin
+#
 admin_core:
     resource: "@AdminCoreBundle/Resources/config/routing.yml"
     prefix: /admin
@@ -40,6 +43,9 @@ admin_login_check:
 admin_logout:
     path: /admin/logout
 
+#
+# Imported routes from bamboo-store
+#
 store_core:
     resource: "@StoreCoreBundle/Resources/config/routing.yml"
 
@@ -69,3 +75,10 @@ store_logout:
 
 core_media_bundle:
     resource: "@ElcodiMediaBundle/Resources/config/routing.yml"
+
+#
+# Local project routes
+#
+admin_example:
+    resource: "@AdminExampleBundle/Resources/config/routing.yml"
+    prefix: /admin
