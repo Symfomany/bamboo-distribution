@@ -19,6 +19,7 @@ namespace Elcodi\AdminExampleBundle\DataFixtures\ORM;
 use Doctrine\Common\Persistence\ObjectManager;
 
 use Elcodi\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
+use Elcodi\MenuBundle\Entity\Menu\Menu;
 use Elcodi\MenuBundle\Entity\Menu\Node;
 
 /**
@@ -48,31 +49,22 @@ class AdminMenuData extends AbstractFixture
      */
     public function load(ObjectManager $manager)
     {
-
-        $adminMenu = $this
-            ->container
-            ->get('elcodi.factory.menu')
-            ->create();
-
-        $adminMenu
-            ->setCode('admin')
-            ->enable();
-
-        $manager->persist($adminMenu);
-        $this->addReference('menu-admin', $adminMenu);
+        /**
+         * User
+         */
 
         $adminUsersNode = $this
             ->createNewNode()
             ->setName('Admin users')
-            ->setUrl('/admin/user/admins')
+            ->setUrl('admin_admin_user_list')
             ->enable();
 
         $manager->persist($adminUsersNode);
 
         $customersNode = $this
             ->createNewNode()
-            ->setName('Admin users')
-            ->setUrl('/admin/user/admins')
+            ->setName('Customers')
+            ->setUrl('admin_customer_list')
             ->enable();
 
         $manager->persist($customersNode);
@@ -86,6 +78,198 @@ class AdminMenuData extends AbstractFixture
             ->enable();
 
         $manager->persist($userNode);
+
+        /**
+         * Catalog
+         */
+
+        $productsNode = $this
+            ->createNewNode()
+            ->setName('Products')
+            ->setUrl('admin_product_list')
+            ->enable();
+
+        $manager->persist($productsNode);
+
+        $categoriesNode = $this
+            ->createNewNode()
+            ->setName('Categories')
+            ->setUrl('admin_category_list')
+            ->enable();
+
+        $manager->persist($categoriesNode);
+
+        $manufacturersNode = $this
+            ->createNewNode()
+            ->setName('Manufacturers')
+            ->setUrl('admin_manufacturer_list')
+            ->enable();
+
+        $manager->persist($manufacturersNode);
+
+        $catalogNode = $this
+            ->createNewNode()
+            ->setName('Catalog')
+            ->setUrl('')
+            ->addSubnode($productsNode)
+            ->addSubnode($categoriesNode)
+            ->addSubnode($manufacturersNode)
+            ->enable();
+
+        $manager->persist($catalogNode);
+
+        /*
+         * Purchases
+         */
+
+        $cartsNode = $this
+            ->createNewNode()
+            ->setName('Carts')
+            ->setUrl('admin_cart_list')
+            ->enable();
+
+        $manager->persist($cartsNode);
+
+        $ordersNode = $this
+            ->createNewNode()
+            ->setName('Orders')
+            ->setUrl('admin_order_list')
+            ->enable();
+
+        $manager->persist($ordersNode);
+
+        $purchasesNode = $this
+            ->createNewNode()
+            ->setName('Purchases')
+            ->setUrl('')
+            ->addSubnode($cartsNode)
+            ->addSubnode($ordersNode)
+            ->enable();
+
+        $manager->persist($purchasesNode);
+
+        /*
+         * Media server
+         */
+
+        $mediasNode = $this
+            ->createNewNode()
+            ->setName('Medias')
+            ->setUrl('admin_image_list')
+            ->enable();
+
+        $manager->persist($mediasNode);
+
+        /*
+         * Banners
+         */
+
+        $bannerzonesNode = $this
+            ->createNewNode()
+            ->setName('Banner Zones')
+            ->setUrl('admin_banner_zone_list')
+            ->enable();
+
+        $manager->persist($bannerzonesNode);
+
+        $simpleBannersNode = $this
+            ->createNewNode()
+            ->setName('Banners')
+            ->setUrl('admin_banner_list')
+            ->enable();
+
+        $manager->persist($simpleBannersNode);
+
+        $bannersNode = $this
+            ->createNewNode()
+            ->setName('Banners')
+            ->setUrl('')
+            ->addSubnode($bannerzonesNode)
+            ->addSubnode($simpleBannersNode)
+            ->enable();
+
+        $manager->persist($bannersNode);
+
+        /*
+         * Coupon
+         */
+
+        $couponsNode = $this
+            ->createNewNode()
+            ->setName('Coupons')
+            ->setUrl('admin_coupon_list')
+            ->enable();
+
+        $manager->persist($couponsNode);
+
+        /*
+         * Currencies
+         */
+
+        $currenciesNode = $this
+            ->createNewNode()
+            ->setName('Currencies')
+            ->setUrl('admin_currency_list')
+            ->enable();
+
+        $manager->persist($currenciesNode);
+
+        /*
+         * Rules
+         */
+
+        $ruleGroupsNode = $this
+            ->createNewNode()
+            ->setName('Rule Groups')
+            ->setUrl('admin_rule_group_list')
+            ->enable();
+
+        $manager->persist($ruleGroupsNode);
+
+        $simpleRulesNode = $this
+            ->createNewNode()
+            ->setName('Rules')
+            ->setUrl('admin_rule_list')
+            ->enable();
+
+        $manager->persist($simpleRulesNode);
+
+        $rulesNode = $this
+            ->createNewNode()
+            ->setName('Rules')
+            ->setUrl('')
+            ->addSubnode($ruleGroupsNode)
+            ->addSubnode($simpleRulesNode)
+            ->enable();
+
+        $manager->persist($rulesNode);
+
+        /*
+         * Admin side Menu
+         */
+
+        /**
+         * @var Menu $adminMenu
+         */
+        $adminMenu = $this
+            ->container
+            ->get('elcodi.factory.menu')
+            ->create();
+
+        $adminMenu
+            ->setCode('admin')
+            ->addSubnode($userNode)
+            ->addSubnode($catalogNode)
+            ->addSubnode($purchasesNode)
+            ->addSubnode($mediasNode)
+            ->addSubnode($bannersNode)
+            ->addSubnode($couponsNode)
+            ->addSubnode($currenciesNode)
+            ->addSubnode($rulesNode)
+            ->enable();
+
+        $manager->persist($adminMenu);
+        $this->addReference('menu-admin', $adminMenu);
 
         $manager->flush();
     }
