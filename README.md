@@ -28,7 +28,7 @@ The application uses [Vagrant](http://www.vagrantup.com/) to set up and configur
 
 Get and install Vagrant from the [official download page](http://www.vagrantup.com/downloads).
 
-### 3. Edit your `host` file
+### 3. Edit your `hosts` file
 
 Edit you `hosts` file by adding:
 
