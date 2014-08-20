@@ -55,13 +55,14 @@ When the vagrant provisioning is done, point your browser to `http://bamboo.dev`
 
 Point your browser to `http://bamboo.dev/admin` and use the following credentials:
 
-### 7. Play!
-
-Look at the [example bundles](https://github.com/alch/bamboo-distribution/tree/master/src/Elcodi/AdminExampleBundle) to see how to extend and customize the front and backoffice web applications.
-
 ```
 email: admin@admin.com
 password: 1234
 ```
+
+### 7. Play!
+
+Look at the [example bundles](https://github.com/alch/bamboo-distribution/tree/master/src/Elcodi/AdminExampleBundle) to see how to extend and customize the front and backoffice web applications.
+
 
 [1]:  http://getcomposer.org/
