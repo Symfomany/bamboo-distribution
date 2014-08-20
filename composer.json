@@ -60,9 +60,9 @@
         "ornicar/gravatar-bundle" : "1.1.2",
         "jquery/jquery": "1.9.*",
 
-        "elcodi/bamboo-store": "dev-master",
-        "elcodi/bamboo-admin": "dev-master",
-        "elcodi/elcodi": "dev-master"
+        "elcodi/bamboo-store": "~0.2.0",
+        "elcodi/bamboo-admin": "~0.2.0",
+        "elcodi/elcodi": "~0.2.0"
     },
     "require-dev": {
         "mmoreram/php-formatter": "~1.0"
