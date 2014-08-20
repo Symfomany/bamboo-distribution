@@ -1,13 +1,13 @@
 Bamboo Distribution
 ===================
 
-Welcome to the Bamboo distribution - a fully-functional e-commerce application featuring a front-end and a backoffice administrator.
+Welcome to the Bamboo distribution - a fully-functional e-commerce application featuring a simple front-end and a backoffice administrator.
 
 It is a basic Symfony application that packages [Bamboo Store](https://github.com/elcodi/bamboo-store) and [Bamboo Admin](https://github.com/elcodi/bamboo-admin) in a single code repository, installing them as dependencies in the `vendor` directory.
 
 [Composer][1] is required to manage dependencies.
 
-If you don't have Composer yet, download it following the instructions on
+if you have not yet installed Composer, download it following the instructions on
 http://getcomposer.org/ or just run the following command:
 
 ```bash

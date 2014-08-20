@@ -37,6 +37,10 @@ admin_media:
     resource: "@AdminMediaBundle/Resources/config/routing.yml"
     prefix: /admin
 
+admin_newsletter:
+    resource: "@AdminNewsletterBundle/Resources/config/routing.yml"
+    prefix: /admin
+
 admin_login_check:
     path:  /admin/login_check
 
