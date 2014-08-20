@@ -1,7 +1,7 @@
 Bamboo Distribution
 ===================
 
-Welcome to the Bamboo distribution - a fully-functional e-commerce application featuring a simple front-end and a backoffice administrator.
+Welcome to the Bamboo distribution - a fully-functional e-commerce application built using [Elcodi](https://github.com/elcodi/elcodi) components featuring a simple front-end and a backoffice administrator.
 
 It is a basic Symfony application that packages [Bamboo Store](https://github.com/elcodi/bamboo-store) and [Bamboo Admin](https://github.com/elcodi/bamboo-admin) in a single code repository, installing them as dependencies in the `vendor` directory.
 
@@ -48,7 +48,16 @@ $ vagrant up
 
 ### 5. Go get some coffee
 
-When the vagrant provisioning is done, point your browser to ``http://bamboo.dev` and you are done!
+When the vagrant provisioning is done, point your browser to `http://bamboo.dev` and you are done!
 
+
+### 6. Logging in the backoffice
+
+Point your browser to `http://bamboo.dev/admin` and use the following credentials:
+
+```
+email: admin@admin.com
+password: 1234
+```
 
 [1]:  http://getcomposer.org/

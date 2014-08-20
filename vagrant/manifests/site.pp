@@ -52,7 +52,7 @@ apache::vhost { 'bamboo.dev':
     docroot_owner => 'vagrant',
     docroot_group => 'vagrant',
     directories   => [
-        { 
+        {
             path           => '/home/vagrant/bamboo-admin/web',
             options        => ['Indexes','FollowSymLinks','MultiViews'],
             allow_override => ['all'],
@@ -71,7 +71,7 @@ class { 'mysql::client':
 }
 
 exec { "console_database_create":
-    command   => "/usr/bin/php /home/vagrant/bamboo-admin/app/console doc:dat:cre && /usr/bin/php /home/vagrant/bamboo-admin/app/console doc:sch:cre && /usr/bin/php /home/vagrant/bamboo-admin/app/console doc:fix:load && /usr/bin/php /home/vagrant/bamboo-admin/app/console assets:install /home/vagrant/bamboo-admin/web --symlink && /usr/bin/php /home/vagrant/bamboo-admin/app/console assetic:dump",
+    command   => "/usr/bin/php /home/vagrant/bamboo-admin/app/console doc:dat:cre && /usr/bin/php /home/vagrant/bamboo-admin/app/console doc:sch:cre && /usr/bin/php /home/vagrant/bamboo-admin/app/console doc:fix:load --fixtures=vendor/elcodi/bamboo-fixtures/ && /usr/bin/php /home/vagrant/bamboo-admin/app/console assets:install /home/vagrant/bamboo-admin/web --symlink && /usr/bin/php /home/vagrant/bamboo-admin/app/console assetic:dump",
     path      => "/home/vagrant/bamboo-admin",
     logoutput => true,
     require   => Package['php5-cli']
