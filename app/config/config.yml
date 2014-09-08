@@ -59,11 +59,6 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
-doctrine_cache:
-    providers:
-        elcodi:
-            type: array
-
 sensio_framework_extra:
     request:
         converters: false
@@ -76,6 +71,11 @@ controller_extra:
 elcodi_menu:
     route_provider:
         adapter: symfony
+
+doctrine_cache:
+    providers:
+        elcodi:
+            type: array
 
 knp_gaufrette:
     adapters:
