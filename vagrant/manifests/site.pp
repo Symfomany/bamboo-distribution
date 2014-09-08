@@ -3,7 +3,7 @@
 
 group { 'puppet': ensure => present }
 
-file { "/home/vagrant/bamboo-admin":
+file { "/home/vagrant/bamboo-distribution":
     ensure => "directory",
     owner  => "vagrant",
     group  => "vagrant",
@@ -38,8 +38,10 @@ include php
 include php::params
 include php::extension::mysql
 include php::extension::intl
-include php::composer
-include php::composer::auto_update
+
+class { ['php::composer', 'php::composer::auto_update']:
+
+}
 
 php::config { 'opcache.enable_cli=1':
     file    => '/etc/php5/cli/conf.d/05-opcache.ini',
@@ -48,12 +50,12 @@ php::config { 'opcache.enable_cli=1':
 
 apache::vhost { 'bamboo.dev':
     port          => '80',
-    docroot       => '/home/vagrant/bamboo-admin/web',
+    docroot       => '/home/vagrant/bamboo-distribution/web',
     docroot_owner => 'vagrant',
     docroot_group => 'vagrant',
     directories   => [
         {
-            path           => '/home/vagrant/bamboo-admin/web',
+            path           => '/home/vagrant/bamboo-distribution/web',
             options        => ['Indexes','FollowSymLinks','MultiViews'],
             allow_override => ['all'],
             allow => 'from All'
@@ -71,8 +73,13 @@ class { 'mysql::client':
 }
 
 exec { "console_database_create":
-    command   => "/usr/bin/php /home/vagrant/bamboo-admin/app/console doc:dat:cre && /usr/bin/php /home/vagrant/bamboo-admin/app/console doc:sch:cre && /usr/bin/php /home/vagrant/bamboo-admin/app/console doc:fix:load --fixtures=vendor/elcodi/bamboo-fixtures/ && /usr/bin/php /home/vagrant/bamboo-admin/app/console assets:install /home/vagrant/bamboo-admin/web --symlink && /usr/bin/php /home/vagrant/bamboo-admin/app/console assetic:dump",
-    path      => "/home/vagrant/bamboo-admin",
+    command   => "/usr/local/bin/composer update --prefer-source &&
+                  /usr/bin/php /home/vagrant/bamboo-admin/app/console doc:dat:cre &&
+                  /usr/bin/php /home/vagrant/bamboo-admin/app/console doc:sch:cre &&
+                  /usr/bin/php /home/vagrant/bamboo-admin/app/console doc:fix:load --fixtures=vendor/elcodi/bamboo-fixtures/ --fixtures=src &&
+                  /usr/bin/php /home/vagrant/bamboo-admin/app/console assets:install /home/vagrant/bamboo-admin/web --symlink &&
+                  /usr/bin/php /home/vagrant/bamboo-admin/app/console assetic:dump",
+    path      => [ '/bin/', '/sbin/', '/usr/bin/', '/usr/sbin/', '/home/vagrant/bamboo-admin' ],
     logoutput => true,
     require   => Package['php5-cli']
 }
