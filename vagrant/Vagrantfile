@@ -42,7 +42,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "../", "/home/vagrant/bamboo-admin",
+  config.vm.synced_folder "../", "/home/vagrant/bamboo-distribution",
       nfs: true,
       :linux__nfs_options => [ "rw", "no_root_squash", "no_subtree_check" ]
 
@@ -61,7 +61,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # See http://askubuntu.com/questions/238040/how-do-i-fix-name-service-for-vagrant-client
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
-  
+
   # View the documentation for the provider you're using for more
   # information on available options.
 
