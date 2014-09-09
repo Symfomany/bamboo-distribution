@@ -56,7 +56,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
     # Use VBoxManage to customize the VM. For example to change memory:
     vb.name = "elcodi"
-    vb.cpus = 4
+    vb.cpus = 2
     vb.memory = 1024
     # See http://askubuntu.com/questions/238040/how-do-i-fix-name-service-for-vagrant-client
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]

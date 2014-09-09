@@ -19,12 +19,13 @@ package {
         'imagemagick',
         'vim',
         'htop',
-        'php5-cli'
+        'php5-cli',
+        'git'
     ]:
     ensure => 'latest'
 }
 
-class { 'apache': 
+class { 'apache':
     default_mods => false,
     mpm_module   => 'prefork',
     user         => 'vagrant',
@@ -73,13 +74,13 @@ class { 'mysql::client':
 }
 
 exec { "console_database_create":
-    command   => "/usr/local/bin/composer update --prefer-source &&
-                  /usr/bin/php /home/vagrant/bamboo-admin/app/console doc:dat:cre &&
-                  /usr/bin/php /home/vagrant/bamboo-admin/app/console doc:sch:cre &&
-                  /usr/bin/php /home/vagrant/bamboo-admin/app/console doc:fix:load --fixtures=vendor/elcodi/bamboo-fixtures/ --fixtures=src &&
-                  /usr/bin/php /home/vagrant/bamboo-admin/app/console assets:install /home/vagrant/bamboo-admin/web --symlink &&
-                  /usr/bin/php /home/vagrant/bamboo-admin/app/console assetic:dump",
-    path      => [ '/bin/', '/sbin/', '/usr/bin/', '/usr/sbin/', '/home/vagrant/bamboo-admin' ],
-    logoutput => true,
-    require   => Package['php5-cli']
+    command     => '/usr/bin/php /home/vagrant/bamboo-distribution/app/console doc:dat:cre &&
+                    /usr/bin/php /home/vagrant/bamboo-distribution/app/console doc:sch:cre &&
+                    /usr/bin/php /home/vagrant/bamboo-distribution/app/console doc:fix:load --no-interaction --fixtures=/home/vagrant/bamboo-distribution/vendor/elcodi/bamboo-fixtures &&
+                    /usr/bin/php /home/vagrant/bamboo-distribution/app/console assets:install /home/vagrant/bamboo-distribution/web --symlink &&
+                    /usr/bin/php /home/vagrant/bamboo-distribution/app/console assetic:dump',
+    user        => 'vagrant',
+    cwd         => '/home/vagrant/bamboo-distribution',
+    logoutput   => true,
+    require     => Package['php5-cli']
 }
