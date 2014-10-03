@@ -76,6 +76,7 @@ class AppKernel extends Kernel
             new \Elcodi\AdminCurrencyBundle\AdminCurrencyBundle(),
             new \Elcodi\AdminMediaBundle\AdminMediaBundle(),
             new \Elcodi\AdminNewsletterBundle\AdminNewsletterBundle(),
+            new \Elcodi\AdminAttributeBundle\AdminAttributeBundle(),
             new \Elcodi\AdminProductBundle\AdminProductBundle(),
             new \Elcodi\AdminRuleBundle\AdminRuleBundle(),
 

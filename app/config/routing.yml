@@ -25,6 +25,10 @@ admin_currency:
     resource: "@AdminCurrencyBundle/Resources/config/routing.yml"
     prefix: /admin
 
+admin_attribute:
+    resource: "@AdminAttributeBundle/Resources/config/routing.yml"
+    prefix: /admin
+
 admin_product:
     resource: "@AdminProductBundle/Resources/config/routing.yml"
     prefix: /admin
