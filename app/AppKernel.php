@@ -31,7 +31,8 @@ class AppKernel extends Kernel
             new \Mmoreram\ControllerExtraBundle\ControllerExtraBundle(),
             new \Ornicar\GravatarBundle\OrnicarGravatarBundle(),
             new \PaymentSuite\PaymentCoreBundle\PaymentCoreBundle(),
-            new \PaymentSuite\FreePaymentBundle\FreePaymentBundle(),
+            //new \PaymentSuite\FreePaymentBundle\FreePaymentBundle(),
+            new \PaymentSuite\PaypalWebCheckoutBundle\PaypalWebCheckoutBundle(),
 
             /**
              * Elcodi core bundles

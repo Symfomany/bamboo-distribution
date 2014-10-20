@@ -87,6 +87,9 @@
         "psr-4": {
             "Elcodi\\": [
                 "src/Elcodi"
+            ],
+            "PaymentSuite\\" : [
+                "src/PaymentSuite"
             ]
         },
         "files": ["app/AppKernel.php"]
