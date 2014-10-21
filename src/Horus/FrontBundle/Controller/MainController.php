@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class MainController extends Controller
 {
+
     /**
      * Main Page
      * @return \Symfony\Component\HttpFoundation\Response
