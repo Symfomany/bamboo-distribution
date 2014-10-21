@@ -4,7 +4,7 @@ horus_front:
 
 horus_admin:
     resource: "@HorusAdminBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /administration
 
 #
 # Imported routes from bamboo-admin
