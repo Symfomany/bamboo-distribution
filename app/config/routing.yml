@@ -1,3 +1,11 @@
+horus_front:
+    resource: "@HorusFrontBundle/Resources/config/routing.yml"
+    prefix:   /
+
+horus_admin:
+    resource: "@HorusAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
 #
 # Imported routes from bamboo-admin
 #
@@ -83,10 +91,3 @@ store_logout:
 
 core_media_bundle:
     resource: "@ElcodiMediaBundle/Resources/config/routing.yml"
-
-#
-# Local project routes
-#
-admin_example:
-    resource: "@AdminExampleBundle/Resources/config/routing.yml"
-    prefix: /admin

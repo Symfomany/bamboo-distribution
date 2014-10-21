@@ -1,20 +1,12 @@
 {
-    "name": "elcodi/bamboo-distribution",
+    "name": "symfomany/bamboo-distribution",
     "license": "MIT",
     "type": "project",
-    "description": "Bamboo distribution, an ecommerce suite built with Elcodi",
+    "description": "Horus distribution, an ecommerce suite built with Elcodi",
     "authors": [
         {
-            "name": "Marc Morera",
-            "email": "yuhu@mmoreram.com"
-        },
-        {
-            "name": "Aldo Chiecchia",
-            "email": "aldo.chiecchia@befactory.es"
-        },
-        {
-            "name": "Symfony Community",
-            "homepage": "https://github.com/elcodi/bamboo-distribution/contributors"
+            "name": "Boyer Julien",
+            "email": "julien@meetserious.com"
         }
     ],
     "repositories": [
@@ -62,7 +54,8 @@
         "elcodi/bamboo-store": "~0.3.0",
         "elcodi/bamboo-admin": "~0.3.0",
         "elcodi/elcodi": "~0.3.0",
-        "elcodi/bamboo-fixtures": "~0.3.0"
+        "elcodi/bamboo-fixtures": "~0.3.0",
+        "sensio/generator-bundle": "~2.4@dev"
     },
     "require-dev": {
         "mmoreram/php-formatter": "~1.0"
@@ -85,8 +78,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Elcodi\\": [
-                "src/Elcodi"
+            "Horus\\": [
+                "src/Horus"
             ]
         },
         "files": ["app/AppKernel.php"]
