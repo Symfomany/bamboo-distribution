@@ -1,5 +1,488 @@
 {% extends '::base.html.twig' %}
 
+
+{#
+    StylSheets
+#}
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Open Sans font from Google CDN -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin" rel="stylesheet" type="text/css">
+
+    {% stylesheets '@HorusFrontBundle/Resources/public/css/style.css' %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+
+    {% stylesheets '@HorusFrontBundle/Resources/public/css/owl.carousel.css' %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+
+    {% stylesheets '@HorusFrontBundle/Resources/public/css/owl.theme.css' %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+
+    {% stylesheets '@HorusFrontBundle/Resources/public/css/ion.checkRadio.css' %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+
+    {% stylesheets '@HorusFrontBundle/Resources/public/css/ion.checkRadio.cloudy.css' %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+
+    {% stylesheets '@HorusFrontBundle/Resources/public/css/jquery.mCustomScrollbar.css' %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+
+    {% stylesheets '@HorusFrontBundle/Resources/public/css/animate.min.css' %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+
+    {% stylesheets '@HorusFrontBundle/Resources/public/css/skin-1.css' %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+
+
+    <!-- Just for debugging purposes. -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- include pace script for automatic web page progress bar  -->
+
+    <script>
+        paceOptions = {
+            elements: true
+        };
+    </script>
+
+
+    <style>
+
+    .themeControll {
+        background:#2d3e50;
+        height: auto;
+        width:100px;
+        position:fixed;
+        left:0;
+        padding:20px;
+        top:20%;
+        z-index:999999;
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -o-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+        -ms-filter: none;
+        filter: none;
+        -webkit-transition: opacity .5s linear, -webkit-transform .7s cubic-bezier(.56, .48, 0, .99);
+        -moz-transition: opacity .5s linear, -moz-transform .7s cubic-bezier(.56, .48, 0, .99);
+        -o-transition: opacity .5s linear, -o-transform .7s cubic-bezier(.56, .48, 0, .99);
+        -ms-transition: opacity .5s linear, -ms-transform .7s cubic-bezier(.56, .48, 0, .99);
+        transition: opacity .5s linear, transform .7s cubic-bezier(.56, .48, 0, .99);
+    }
+
+    .themeControll.active {
+        display: block;
+        -webkit-transform: translateX(-100px);
+        -moz-transform: translateX(-100px);
+        -o-transform: translateX(-100px);
+        -ms-transform: translateX(-1020px);
+        transform: translateX(-100px);
+        -webkit-transition: opacity .5s linear, -webkit-transform .7s cubic-bezier(.56, .48, 0, .99);
+        -moz-transition: opacity .5s linear, -moz-transform .7s cubic-bezier(.56, .48, 0, .99);
+        -o-transition: opacity .5s linear, -o-transform .7s cubic-bezier(.56, .48, 0, .99);
+        -ms-transition: opacity .5s linear, -ms-transform .7s cubic-bezier(.56, .48, 0, .99);
+        transition: opacity .5s linear, transform .7s cubic-bezier(.56, .48, 0, .99);
+
+    }
+
+    .themeControll a {
+        border-radius: 3px;
+        clear: both;
+        display: block;
+        height: 25px;
+        margin-bottom: 4px;
+        width: 50px;
+    }
+
+    .tbtn {
+        background:#2D3E50;
+        color: #FFFFFF !important;
+        font-size: 30px;
+        height: auto;
+        padding: 10px;
+        position: absolute;
+        right: -40px;
+        top: 0;
+        width: 40px;
+        cursor:pointer;
+    }
+
+    @media (max-width: 780px) {
+        .themeControll {
+            display:none;
+        }
+    }
+
+</style>
+
+    <!-- Get jQuery from Google CDN -->
+    <!--[if !IE]> -->
+    <script type="text/javascript"> window.jQuery || document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js">'+"<"+"/script>"); </script>
+    <!-- <![endif]-->
+    <!--[if lte IE 9]>
+    <script type="text/javascript"> window.jQuery || document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">'+"<"+"/script>"); </script>
+    <![endif]-->
+
+{% endblock %}
+
+
+
 {% block body %}
+
+    {% block navbar %}
+    <!-- Fixed navbar start -->
+        <div class="navbar navbar-tshop navbar-fixed-top megamenu" role="navigation">
+        <div class="navbar-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6">
+                        <div class="pull-left ">
+                            <ul class="userMenu ">
+                                <li> <a href="http://codepeoples.com/tanimdesign.net/tshop/html/index.html#"> <span class="hidden-xs">HELP</span><i class="glyphicon glyphicon-info-sign hide visible-xs "></i> </a> </li>
+                                <li class="phone-number"> <a href="callto:+8801680531352"> <span> <i class="glyphicon glyphicon-phone-alt "></i></span> <span class="hidden-xs" style="margin-left:5px"> 88 01680 53 1352 </span> </a> </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6 no-margin no-padding">
+                        <div class="pull-right">
+                            <ul class="userMenu">
+                                <li> <a href="http://codepeoples.com/tanimdesign.net/tshop/html/account-1.html"><span class="hidden-xs"> My Account</span> <i class="glyphicon glyphicon-user hide visible-xs "></i></a> </li>
+                                <li> <a href="http://codepeoples.com/tanimdesign.net/tshop/html/index.html#" data-toggle="modal" data-target="#ModalLogin"> <span class="hidden-xs">Sign In</span> <i class="glyphicon glyphicon-log-in hide visible-xs "></i> </a> </li>
+                                <li class="hidden-xs"> <a href="http://codepeoples.com/tanimdesign.net/tshop/html/index.html#" data-toggle="modal" data-target="#ModalSignup"> Create Account </a> </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.navbar-top-->
+    {% endblock %}
+
+    {% block signup %}
+        <!-- Modal Signup start -->
+        <div class="modal signUpContent fade" id="ModalSignup" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
+                        <h3 class="modal-title-site text-center"> REGISTER </h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="control-group"> <a class="fb_button btn  btn-block btn-lg " href="http://codepeoples.com/tanimdesign.net/tshop/html/index.html#"> SIGNUP WITH FACEBOOK </a> </div>
+                        <h5 style="padding:10px 0 10px 0;" class="text-center"> OR </h5>
+                        <div class="form-group reg-username">
+                            <div>
+                                <input name="login" class="form-control input" size="20" placeholder="Enter Username" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group reg-email">
+                            <div>
+                                <input name="reg" class="form-control input" size="20" placeholder="Enter Email" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group reg-password">
+                            <div>
+                                <input name="password" class="form-control input" size="20" placeholder="Password" type="password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <div class="checkbox login-remember">
+                                    <label style="display: none;">
+                                        <input name="rememberme" id="rememberme" value="forever" checked="checked" type="checkbox" style="display: none;">
+                                        Remember Me </label><span class="icr enabled checked" id="icr-2"><span class="icr__checkbox"></span><span class="icr__text">Remember Me</span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <input name="submit" class="btn  btn-block btn-lg btn-primary" value="REGISTER" type="submit">
+                            </div>
+                        </div>
+                        <!--userForm-->
+
+                    </div>
+                    <div class="modal-footer">
+                        <p class="text-center"> Already member? <a data-toggle="modal" data-dismiss="modal" href="http://codepeoples.com/tanimdesign.net/tshop/html/index.html#ModalLogin"> Sign in </a> </p>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+
+            </div>
+            <!-- /.modal-dialog -->
+
+        </div>
+        <!-- /.ModalSignup End -->
+    {% endblock %}
+
+
+    {% block login %}
+        <!-- Modal Login start -->
+        <div class="modal signUpContent fade" id="ModalLogin" tabindex="-1" role="dialog">
+            <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
+                        <h3 class="modal-title-site text-center"> Login  to TSHOP </h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group login-username">
+                            <div>
+                                <input name="log" id="login-user" class="form-control input" size="20" placeholder="Enter Username" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group login-password">
+                            <div>
+                                <input name="Password" id="login-password" class="form-control input" size="20" placeholder="Password" type="password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <div class="checkbox login-remember">
+                                    <label style="display: none;">
+                                        <input name="rememberme" value="forever" checked="checked" type="checkbox" style="display: none;">
+                                        Remember Me </label><span class="icr enabled checked" id="icr-1"><span class="icr__checkbox"></span><span class="icr__text">Remember Me</span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <input name="submit" class="btn  btn-block btn-lg btn-primary" value="LOGIN" type="submit">
+                            </div>
+                        </div>
+                        <!--userForm-->
+
+                    </div>
+                    <div class="modal-footer">
+                        <p class="text-center"> Not here before? <a data-toggle="modal" data-dismiss="modal" href="http://codepeoples.com/tanimdesign.net/tshop/html/index.html#ModalSignup"> Sign Up. </a> <br>
+                            <a href="http://codepeoples.com/tanimdesign.net/tshop/html/forgot-password.html"> Lost your password? </a> </p>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+
+            </div>
+            <!-- /.modal-dialog -->
+
+        </div>
+        <!-- /.Modal Login -->
+    {% endblock %}
+    {% block parallax %}
+        <div class="parallax-section parallax-image-2">
+            <div class="w100 parallax-section-overley">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="parallax-content clearfix">
+                                <h1 class="xlarge"> Trusted Seller 500+ </h1>
+                                <h5 class="parallaxSubtitle"> Lorem ipsum dolor sit amet consectetuer </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.parallax-section-->
+    {% endblock %}
+
+    {% block head %}
+        <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only"> Toggle navigation </span> <span class="icon-bar"> </span> <span class="icon-bar"> </span> <span class="icon-bar"> </span> </button>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-cart"> <i class="fa fa-shopping-cart colorWhite"> </i> <span class="cartRespons colorWhite"> Cart ($210.00) </span> </button>
+            <a class="navbar-brand " href="./TSHOP - Bootstrap E-Commerce Parallax Theme_files/TSHOP - Bootstrap E-Commerce Parallax Theme.html">
+                <img src="{{ asset('images/logo.png') }}" alt="TSHOP"> </a>
+
+            <!-- this part for mobile -->
+            <div class="search-box pull-right hidden-lg hidden-md hidden-sm">
+                <div class="input-group">
+                    <button class="btn btn-nobg getFullSearch" type="button"> <i class="fa fa-search"> </i> </button>
+                </div>
+                <!-- /input-group -->
+
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block content %}
+
+    {% endblock %}
+    {% block foot %}
+
+        </div>
+        <!--main-container-->
+    {% endblock %}
+
+    {% block footer %}
+
+        <footer>
+            <div class="footer" id="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3  col-md-3 col-sm-4 col-xs-6">
+                            <h3> Support </h3>
+                            <ul>
+                                <li class="supportLi">
+                                    <p> Lorem ipsum dolor sit amet, consectetur </p>
+                                    <h4> <a class="inline" href="callto:+8801680531352"> <strong> <i class="fa fa-phone"> </i> 88 01680 531352 </strong> </a> </h4>
+                                    <h4> <a class="inline" href="mailto:help@tshopweb.com"> <i class="fa fa-envelope-o"> </i> help@tshopweb.com </a> </h4>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                            <h3> Shop </h3>
+                            <ul>
+                                <li> <a href="./TSHOP - Bootstrap E-Commerce Parallax Theme_files/TSHOP - Bootstrap E-Commerce Parallax Theme.html"> Home </a> </li>
+                                <li> <a href="http://codepeoples.com/tanimdesign.net/tshop/html/category.html"> Category </a> </li>
+                                <li> <a href="http://codepeoples.com/tanimdesign.net/tshop/html/sub-category.html"> Sub Category </a> </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                            <h3> Information </h3>
+                            <ul>
+                                <li> <a href="http://codepeoples.com/tanimdesign.net/tshop/html/product-details.html"> Product Details </a> </li>
+                                <li> <a href="http://codepeoples.com/tanimdesign.net/tshop/html/product-details-style2.html"> Product Details Version 2 </a> </li>
+                                <li> <a href="http://codepeoples.com/tanimdesign.net/tshop/html/cart.html"> Cart </a> </li>
+                                <li> <a href="http://codepeoples.com/tanimdesign.net/tshop/html/about-us.html"> About us </a> </li>
+                                <li> <a href="http://codepeoples.com/tanimdesign.net/tshop/html/about-us-2.html"> About us 2 </a> </li>
+                                <li> <a href="http://codepeoples.com/tanimdesign.net/tshop/html/contact-us.html"> Contact us </a> </li>
+                                <li> <a href="http://codepeoples.com/tanimdesign.net/tshop/html/contact-us-2.html"> Contact us 2 </a> </li>
+                                <li> <a href="http://codepeoples.com/tanimdesign.net/tshop/html/terms-conditions.html"> Terms &amp; Conditions </a> </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                            <h3> My Account </h3>
+                            <ul>
+                                <li> <a href="http://codepeoples.com/tanimdesign.net/tshop/html/account-1.html"> Account Login </a> </li>
+                                <li> <a href="http://codepeoples.com/tanimdesign.net/tshop/html/account.html"> My Account </a> </li>
+                                <li> <a href="http://codepeoples.com/tanimdesign.net/tshop/html/my-address.html"> My Address </a> </li>
+                                <li> <a href="http://codepeoples.com/tanimdesign.net/tshop/html/wishlist.html"> Wisth list </a> </li>
+                                <li> <a href="http://codepeoples.com/tanimdesign.net/tshop/html/order-list.html"> Order list </a> </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
+                            <h3> Stay in touch </h3>
+                            <ul>
+                                <li>
+                                    <div class="input-append newsLatterBox text-center">
+                                        <input type="text" class="full text-center" placeholder="Email ">
+                                        <button class="btn  bg-gray" type="button"> Subscribe <i class="fa fa-long-arrow-right"> </i> </button>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="social">
+                                <li> <a href="http://facebook.com/"> <i class=" fa fa-facebook"> &nbsp; </i> </a> </li>
+                                <li> <a href="http://twitter.com/"> <i class="fa fa-twitter"> &nbsp; </i> </a> </li>
+                                <li> <a href="https://plus.google.com/"> <i class="fa fa-google-plus"> &nbsp; </i> </a> </li>
+                                <li> <a href="http://youtube.com/"> <i class="fa fa-pinterest"> &nbsp; </i> </a> </li>
+                                <li> <a href="http://youtube.com/"> <i class="fa fa-youtube"> &nbsp; </i> </a> </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--/.row-->
+                </div>
+                <!--/.container-->
+            </div>
+            <!--/.footer-->
+
+            <div class="footer-bottom">
+                <div class="container">
+                    <p class="pull-left"> © TSHOP 2014. All right reserved. </p>
+                    <div class="pull-right paymentMethodImg">
+                        <img height="30" class="pull-right" src="{{ asset('images/master_card.png') }}" alt="img">
+                        <img height="30" class="pull-right" src="{{ asset('images/paypal.png') }}" alt="img">
+                        <img height="30" class="pull-right" src="{{ asset('images/american_express_card.png') }}" alt="img">
+                        <img height="30" class="pull-right" src="{{ asset('images/google_wallet.png') }}" alt="img">
+                        <img height="30" class="pull-right" src="{{ asset('images/discover_network_card.png') }}" alt="img"> </div>
+                </div>
+            </div>
+            <!--/.footer-bottom-->
+        </footer>
+    {% endblock %}
+{% endblock %}
+
+
+
+
+
+
+{#
+    Javascripts
+#}
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+
+    {% javascripts '@HorusFrontBundle/Resources/public/js/pace.min.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% javascripts '@HorusFrontBundle/Resources/public/js/jquery.cycle2.min.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% javascripts '@HorusFrontBundle/Resources/public/js/jquery.easing.1.3.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% javascripts '@HorusFrontBundle/Resources/public/js/jquery.parallax-1.1.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% javascripts '@HorusFrontBundle/Resources/public/js/jquery.mousewheel.min.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% javascripts '@HorusFrontBundle/Resources/public/js/jquery.mCustomScrollbar.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% javascripts '@HorusFrontBundle/Resources/public/js/ion.checkRadio.min.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% javascripts '@HorusFrontBundle/Resources/public/js/grids.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% javascripts '@HorusFrontBundle/Resources/public/js/owl.carousel.min.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% javascripts '@HorusFrontBundle/Resources/public/js/jquery.minimalect.min.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% javascripts '@HorusFrontBundle/Resources/public/js/bootstrap.touchspin.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% javascripts '@HorusFrontBundle/Resources/public/js/home.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% javascripts '@HorusFrontBundle/Resources/public/js/script.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
 
 {% endblock %}

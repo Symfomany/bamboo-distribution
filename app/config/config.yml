@@ -44,8 +44,7 @@ doctrine:
 # Assetic Configuration
 assetic:
     bundles:
-        - AdminCoreBundle
-        - StoreCoreBundle
+        - HorusFrontBundle
     debug:          "%kernel.debug%"
     use_controller: false
     filters:
