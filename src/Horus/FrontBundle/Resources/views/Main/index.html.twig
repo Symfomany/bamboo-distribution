@@ -14,15 +14,6 @@
             <div class="slider slider-v1" data-cycle-swipe="true" data-cycle-prev=".prevControl" data-cycle-next=".nextControl" data-cycle-loader="wait" style="overflow: hidden;"><div class="slider-item slider-item-img1 cycle-slide cycle-sentinel" style="visibility: hidden; position: static; top: 0px; left: 0px; z-index: 100; opacity: 1; display: block;"> <img src="{{ asset('images/slider0.jpg') }}" class="img-responsive parallaximg sliderImg" alt="img" style="visibility: hidden;"> </div>
 
 
-                <!--/.slider-item-->
-
-
-                <!--/.slider-item-->
-
-
-                <!--/.slider-item-->
-
-
                 <div class="slider-item slider-item-img1 cycle-slide" style="visibility: hidden; position: absolute; top: 0px; left: 0px; z-index: 97; opacity: 1; display: block;">
                     <img src="{{ asset('images/slider0.jpg') }}" class="img-responsive parallaximg sliderImg" alt="img"> </div><div class="slider-item slider-item-img1 cycle-slide cycle-slide-active" style="visibility: visible; position: absolute; top: 0px; left: 0px; z-index: 99; opacity: 1; display: block;">
                     <div class="sliderInfo">
@@ -66,7 +57,8 @@
                     <div class="sliderInfo">
                         <div class="container">
                             <div class="col-lg-5 col-md-6 col-sm-5 col-xs-5 pull-left sliderText blankstyle transformRight">
-                                <div class="inner text-right"> <img src="./TSHOP - Bootstrap E-Commerce Parallax Theme_files/color.png" class="img-responsive" alt="img"> </div>
+                                <div class="inner text-right">
+                                    <img src="{{ asset('images/color.png') }}" class="img-responsive" alt="img"> </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-5 col-xs-7   pull-left sliderText blankstyle color-white">
                                 <div class="inner">
@@ -83,6 +75,163 @@
     </div>
     <!--/.full-container-->
 </div>
+
+
+
+
+    <div class="container main-container">
+
+
+        <div class="row featuredPostContainer globalPadding style2">
+            <h3 class="section-title style2 text-center"><span>NEW ARRIVALS</span></h3>
+            <div id="productslider" class="owl-carousel owl-theme">
+                <div class="item">
+                    <div class="product">
+                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"  data-placement="left">
+                            <i class="glyphicon glyphicon-heart"></i>
+                        </a>
+
+                        <div class="image"> <a href="product-details.html"><img src="{{ asset('images/product/34.jpg') }}" alt="img" class="img-responsive"></a>
+                            <div class="promotion"> <span class="new-product"> NEW</span> <span class="discount">15% OFF</span> </div>
+                        </div>
+                        <div class="description">
+                            <h4><a href="product-details.html">consectetuer adipiscing </a></h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <span class="size">XL / XXL / S </span> </div>
+                        <div class="price"> <span>$25</span> </div>
+                        <div class="action-control"> <a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a> </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="product">
+                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"  data-placement="left">
+                            <i class="glyphicon glyphicon-heart"></i>
+                        </a>
+
+                        <div class="image"> <a href="product-details.html"><img src="{{ asset('images/product/30.jpg') }}" alt="img" class="img-responsive"></a>
+                            <div class="promotion"> <span class="discount">15% OFF</span> </div>
+                        </div>
+                        <div class="description">
+                            <h4><a href="product-details.html">luptatum zzril delenit</a></h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <span class="size">XL / XXL / S </span> </div>
+                        <div class="price"> <span>$25</span> </div>
+                        <div class="action-control"> <a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a> </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="product">
+                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"  data-placement="left">
+                            <i class="glyphicon glyphicon-heart"></i>
+                        </a>
+
+                        <div class="image"> <a href="product-details.html"><img src="{{ asset('images/product/36.jpg') }}"  alt="img" class="img-responsive"></a>
+                            <div class="promotion"> <span class="new-product"> NEW</span> </div>
+                        </div>
+                        <div class="description">
+                            <h4><a href="product-details.html">eleifend option </a></h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <span class="size">XL / XXL / S </span> </div>
+                        <div class="price"> <span>$25</span> </div>
+                        <div class="action-control"> <a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a> </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="product">
+                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"  data-placement="left">
+                            <i class="glyphicon glyphicon-heart"></i>
+                        </a>
+
+                        <div class="image"> <a href="product-details.html"><img src="{{ asset('images/product/9.jpg') }}"  alt="img" class="img-responsive"></a> </div>
+                        <div class="description">
+                            <h4><a href="product-details.html">mutationem consuetudium </a></h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <span class="size">XL / XXL / S </span> </div>
+                        <div class="price"> <span>$25</span> </div>
+                        <div class="action-control"> <a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a> </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="product">
+                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"  data-placement="left">
+                            <i class="glyphicon glyphicon-heart"></i>
+                        </a>
+
+                        <div class="image"> <a href="product-details.html"><img src="{{ asset('images/product/12.jpg') }}"  alt="img" class="img-responsive"></a> </div>
+                        <div class="description">
+                            <h4><a href="product-details.html">sequitur mutationem </a></h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <span class="size">XL / XXL / S </span> </div>
+                        <div class="price"> <span>$25</span> </div>
+                        <div class="action-control"> <a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a> </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="product">
+                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"  data-placement="left">
+                            <i class="glyphicon glyphicon-heart"></i>
+                        </a>
+
+                        <div class="image"> <a href="product-details.html"><imgsrc="{{ asset('images/product/13.jpg') }}"  alt="img" class="img-responsive"></a> </div>
+                        <div class="description">
+                            <h4><a href="product-details.html">consuetudium lectorum.</a></h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <span class="size">XL / XXL / S </span> </div>
+                        <div class="price"> <span>$25</span> </div>
+                        <div class="action-control"> <a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a> </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="product">
+                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"  data-placement="left">
+                            <i class="glyphicon glyphicon-heart"></i>
+                        </a>
+
+                        <div class="image"> <a href="product-details.html"><img src="{{ asset('images/product/21.jpg') }}"  alt="img" class="img-responsive"></a> </div>
+                        <div class="description">
+                            <h4><a href="product-details.html">parum claram</a></h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <span class="size">XL / XXL / S </span> </div>
+                        <div class="price"> <span>$25</span> </div>
+                        <div class="action-control"> <a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a> </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="product">
+                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"  data-placement="left">
+                            <i class="glyphicon glyphicon-heart"></i>
+                        </a>
+
+                        <div class="image"> <a href="product-details.html"><img src="{{ asset('images/product/24.jpg') }}"  alt="img" class="img-responsive"></a> </div>
+                        <div class="description">
+                            <h4><a href="product-details.html">duis dolore </a></h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <span class="size">XL / XXL / S </span> </div>
+                        <div class="price"> <span>$25</span> </div>
+                        <div class="action-control"> <a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a> </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="product">
+                        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"  data-placement="left">
+                            <i class="glyphicon glyphicon-heart"></i>
+                        </a>
+
+                        <div class="image"> <a href="product-details.html"><img src="{{ asset('images/product/15.jpg') }}" alt="img" class="img-responsive"></a></div>
+                        <div class="description">
+                            <h4><a href="product-details.html">feugait nulla facilisi</a></h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <span class="size">XL / XXL / S </span> </div>
+                        <div class="price"> <span>$25</span> </div>
+                        <div class="action-control"> <a class="btn btn-primary"> <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a> </div>
+                    </div>
+                </div>
+            </div>
+            <!--/.productslider-->
+
+        </div>
+    </div>
+    <!-- /main container -->
 <!--/.banner style1-->
 {% endblock %}
 

@@ -16,6 +16,10 @@
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
     {% endstylesheets %}
 
+    {% stylesheets '@HorusFrontBundle/Resources/public/css/animate.min.css' %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+
     {% stylesheets '@HorusFrontBundle/Resources/public/css/owl.carousel.css' %}
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
     {% endstylesheets %}
@@ -36,10 +40,6 @@
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
     {% endstylesheets %}
 
-    {% stylesheets '@HorusFrontBundle/Resources/public/css/animate.min.css' %}
-    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
-    {% endstylesheets %}
-
     {% stylesheets '@HorusFrontBundle/Resources/public/css/skin-1.css' %}
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
     {% endstylesheets %}
@@ -53,83 +53,22 @@
 
     <!-- include pace script for automatic web page progress bar  -->
 
+
+
+    {% javascripts '@HorusFrontBundle/Resources/public/js/pace.min.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script type="text/javascript">
+        function swapStyleSheet(sheet){
+            document.getElementById('pagestyle').setAttribute('href', sheet);
+        }
+    </script>
+
     <script>
         paceOptions = {
             elements: true
         };
     </script>
-
-
-    <style>
-
-    .themeControll {
-        background:#2d3e50;
-        height: auto;
-        width:100px;
-        position:fixed;
-        left:0;
-        padding:20px;
-        top:20%;
-        z-index:999999;
-        -webkit-transform: translateX(0);
-        -moz-transform: translateX(0);
-        -o-transform: translateX(0);
-        -ms-transform: translateX(0);
-        transform: translateX(0);
-        opacity: 1;
-        -ms-filter: none;
-        filter: none;
-        -webkit-transition: opacity .5s linear, -webkit-transform .7s cubic-bezier(.56, .48, 0, .99);
-        -moz-transition: opacity .5s linear, -moz-transform .7s cubic-bezier(.56, .48, 0, .99);
-        -o-transition: opacity .5s linear, -o-transform .7s cubic-bezier(.56, .48, 0, .99);
-        -ms-transition: opacity .5s linear, -ms-transform .7s cubic-bezier(.56, .48, 0, .99);
-        transition: opacity .5s linear, transform .7s cubic-bezier(.56, .48, 0, .99);
-    }
-
-    .themeControll.active {
-        display: block;
-        -webkit-transform: translateX(-100px);
-        -moz-transform: translateX(-100px);
-        -o-transform: translateX(-100px);
-        -ms-transform: translateX(-1020px);
-        transform: translateX(-100px);
-        -webkit-transition: opacity .5s linear, -webkit-transform .7s cubic-bezier(.56, .48, 0, .99);
-        -moz-transition: opacity .5s linear, -moz-transform .7s cubic-bezier(.56, .48, 0, .99);
-        -o-transition: opacity .5s linear, -o-transform .7s cubic-bezier(.56, .48, 0, .99);
-        -ms-transition: opacity .5s linear, -ms-transform .7s cubic-bezier(.56, .48, 0, .99);
-        transition: opacity .5s linear, transform .7s cubic-bezier(.56, .48, 0, .99);
-
-    }
-
-    .themeControll a {
-        border-radius: 3px;
-        clear: both;
-        display: block;
-        height: 25px;
-        margin-bottom: 4px;
-        width: 50px;
-    }
-
-    .tbtn {
-        background:#2D3E50;
-        color: #FFFFFF !important;
-        font-size: 30px;
-        height: auto;
-        padding: 10px;
-        position: absolute;
-        right: -40px;
-        top: 0;
-        width: 40px;
-        cursor:pointer;
-    }
-
-    @media (max-width: 780px) {
-        .themeControll {
-            display:none;
-        }
-    }
-
-</style>
 
     <!-- Get jQuery from Google CDN -->
     <!--[if !IE]> -->
@@ -146,6 +85,8 @@
 {% block body %}
 
     {% block navbar %}
+
+        <!-- Fixed navbar start -->
         <div class="navbar navbar-tshop navbar-fixed-top megamenu" role="navigation">
         <div class="navbar-top">
             <div class="container">
@@ -154,7 +95,7 @@
                         <div class="pull-left ">
                             <ul class="userMenu ">
                                 <li> <a href="#"> <span class="hidden-xs">HELP</span><i class="glyphicon glyphicon-info-sign hide visible-xs "></i> </a> </li>
-                                <li class="phone-number"> <a href="callto:+8801680531352"> <span> <i class="glyphicon glyphicon-phone-alt "></i></span> <span class="hidden-xs" style="margin-left:5px"> 88 01680 53 1352 </span> </a> </li>
+                                <li class="phone-number"> <a  href="callto:+8801680531352"> <span> <i class="glyphicon glyphicon-phone-alt "></i></span> <span class="hidden-xs" style="margin-left:5px"> 88 01680 53 1352 </span> </a> </li>
                             </ul>
                         </div>
                     </div>
@@ -162,8 +103,8 @@
                         <div class="pull-right">
                             <ul class="userMenu">
                                 <li> <a href="account-1.html"><span class="hidden-xs"> My Account</span> <i class="glyphicon glyphicon-user hide visible-xs "></i></a> </li>
-                                <li> <a href="#" data-toggle="modal" data-target="#ModalLogin"> <span class="hidden-xs">Sign In</span> <i class="glyphicon glyphicon-log-in hide visible-xs "></i> </a> </li>
-                                <li class="hidden-xs"> <a href="#" data-toggle="modal" data-target="#ModalSignup"> Create Account </a> </li>
+                                <li> <a href="#"  data-toggle="modal" data-target="#ModalLogin"> <span class="hidden-xs">Sign In</span> <i class="glyphicon glyphicon-log-in hide visible-xs "></i> </a> </li>
+                                <li class="hidden-xs"> <a href="#"  data-toggle="modal" data-target="#ModalSignup"> Create Account </a> </li>
                             </ul>
                         </div>
                     </div>
@@ -187,82 +128,85 @@
 
             </div>
         </div>
+        {% endblock %}
 
+
+        {% block cart %}
         <!-- this part is duplicate from cartMenu  keep it for mobile -->
         <div class="navbar-cart  collapse">
             <div class="cartMenu  col-lg-4 col-xs-12 col-md-4 ">
-                <div class="w100 miniCartTable scroll-pane mCustomScrollbar _mCS_1" style="overflow: hidden;"><div class="mCustomScrollBox mCS-dark-2" id="mCSB_1" style="position: relative; height: 100%; overflow: hidden; max-width: 100%; max-height: 300px;"><div class="mCSB_container mCS_no_scrollbar" style="position: relative; top: 0px;">
-                            <table>
-                                <tbody>
-                                <tr class="miniCartProduct">
-                                    <td style="20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="{{ asset('images/3.jpg') }}" alt="img"> </a> </div></td>
-                                    <td style="40%"><div class="miniCartDescription">
-                                            <h4> <a href="product-details.html"> TSHOP T shirt Black </a> </h4>
-                                            <span class="size"> 12 x 1.5 L </span>
-                                            <div class="price"> <span> $8.80 </span> </div>
-                                        </div></td>
-                                    <td style="10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                    <td style="15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                                    <td style="5%" class="delete"><a> x </a></td>
-                                </tr>
-                                <tr class="miniCartProduct">
-                                    <td style="20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="{{ asset('images/5.jpg') }}" alt="img"> </a> </div></td>
-                                    <td style="40%"><div class="miniCartDescription">
-                                            <h4> <a href="product-details.html"> TSHOP T shirt Black </a> </h4>
-                                            <span class="size"> 12 x 1.5 L </span>
-                                            <div class="price"> <span> $8.80 </span> </div>
-                                        </div></td>
-                                    <td style="10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                    <td style="15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                                    <td style="5%" class="delete"><a> x </a></td>
-                                </tr>
-                                <tr class="miniCartProduct">
-                                    <td style="20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="{{ asset('images/5.jpg') }}" alt="img"> </a> </div></td>
-                                    <td style="40%"><div class="miniCartDescription">
-                                            <h4> <a href="product-details.html"> TSHOP T shirt Black </a> </h4>
-                                            <span class="size"> 12 x 1.5 L </span>
-                                            <div class="price"> <span> $8.80 </span> </div>
-                                        </div></td>
-                                    <td style="10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                    <td style="15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                                    <td style="5%" class="delete"><a> x </a></td>
-                                </tr>
-                                <tr class="miniCartProduct">
-                                    <td style="20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="{{ asset('images/3.jpg') }}" alt="img"> </a> </div></td>
-                                    <td style="40%"><div class="miniCartDescription">
-                                            <h4> <a href="product-details.html"> TSHOP T shirt Black </a> </h4>
-                                            <span class="size"> 12 x 1.5 L </span>
-                                            <div class="price"> <span> $8.80 </span> </div>
-                                        </div></td>
-                                    <td style="10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                    <td style="15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                                    <td style="5%" class="delete"><a> x </a></td>
-                                </tr>
-                                <tr class="miniCartProduct">
-                                    <td style="20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="{{ asset('images/3.jpg') }}" alt="img"> </a> </div></td>
-                                    <td style="40%"><div class="miniCartDescription">
-                                            <h4> <a href="product-details.html"> TSHOP T shirt Black </a> </h4>
-                                            <span class="size"> 12 x 1.5 L </span>
-                                            <div class="price"> <span> $8.80 </span> </div>
-                                        </div></td>
-                                    <td style="10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                    <td style="15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                                    <td style="5%" class="delete"><a> x </a></td>
-                                </tr>
-                                <tr class="miniCartProduct">
-                                    <td style="20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="{{ asset('images/4.jpg') }}" alt="img"> </a> </div></td>
-                                    <td style="40%"><div class="miniCartDescription">
-                                            <h4> <a href="product-details.html"> TSHOP T shirt Black </a> </h4>
-                                            <span class="size"> 12 x 1.5 L </span>
-                                            <div class="price"> <span> $8.80 </span> </div>
-                                        </div></td>
-                                    <td style="10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                    <td style="15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                                    <td style="5%" class="delete"><a> x </a></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div><div class="mCSB_scrollTools" style="position: absolute; display: none;"><div class="mCSB_draggerContainer"><div class="mCSB_dragger" style="position: absolute; top: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="position:relative;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
+                <div class="w100 miniCartTable scroll-pane">
+                    <table  >
+                        <tbody>
+                        <tr class="miniCartProduct">
+                            <td style="20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="images/product/3.jpg" alt="img"> </a> </div></td>
+                            <td style="40%"><div class="miniCartDescription">
+                                    <h4> <a href="product-details.html"> TSHOP T shirt Black </a> </h4>
+                                    <span class="size"> 12 x 1.5 L </span>
+                                    <div class="price"> <span> $8.80 </span> </div>
+                                </div></td>
+                            <td  style="10%" class="miniCartQuantity"><a > X 1 </a></td>
+                            <td  style="15%" class="miniCartSubtotal"><span> $8.80 </span></td>
+                            <td  style="5%" class="delete"><a > x </a></td>
+                        </tr>
+                        <tr class="miniCartProduct">
+                            <td style="20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="images/product/2.jpg" alt="img"> </a> </div></td>
+                            <td  style="40%"><div class="miniCartDescription">
+                                    <h4> <a href="product-details.html"> TSHOP T shirt Black </a> </h4>
+                                    <span class="size"> 12 x 1.5 L </span>
+                                    <div class="price"> <span> $8.80 </span> </div>
+                                </div></td>
+                            <td   style="10%" class="miniCartQuantity"><a > X 1 </a></td>
+                            <td  style="15%" class="miniCartSubtotal"><span> $8.80 </span></td>
+                            <td  style="5%" class="delete"><a > x </a></td>
+                        </tr>
+                        <tr class="miniCartProduct">
+                            <td style="20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="images/product/5.jpg" alt="img"> </a> </div></td>
+                            <td  style="40%"><div class="miniCartDescription">
+                                    <h4> <a href="product-details.html"> TSHOP T shirt Black </a> </h4>
+                                    <span class="size"> 12 x 1.5 L </span>
+                                    <div class="price"> <span> $8.80 </span> </div>
+                                </div></td>
+                            <td   style="10%" class="miniCartQuantity"><a > X 1 </a></td>
+                            <td  style="15%" class="miniCartSubtotal"><span> $8.80 </span></td>
+                            <td  style="5%" class="delete"><a > x </a></td>
+                        </tr>
+                        <tr class="miniCartProduct">
+                            <td style="20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="images/product/3.jpg" alt="img"> </a> </div></td>
+                            <td  style="40%"><div class="miniCartDescription">
+                                    <h4> <a href="product-details.html"> TSHOP T shirt Black </a> </h4>
+                                    <span class="size"> 12 x 1.5 L </span>
+                                    <div class="price"> <span> $8.80 </span> </div>
+                                </div></td>
+                            <td   style="10%" class="miniCartQuantity"><a > X 1 </a></td>
+                            <td  style="15%" class="miniCartSubtotal"><span> $8.80 </span></td>
+                            <td  style="5%" class="delete"><a > x </a></td>
+                        </tr>
+                        <tr class="miniCartProduct">
+                            <td style="20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="images/product/3.jpg" alt="img"> </a> </div></td>
+                            <td  style="40%"><div class="miniCartDescription">
+                                    <h4> <a href="product-details.html"> TSHOP T shirt Black </a> </h4>
+                                    <span class="size"> 12 x 1.5 L </span>
+                                    <div class="price"> <span> $8.80 </span> </div>
+                                </div></td>
+                            <td   style="10%" class="miniCartQuantity"><a > X 1 </a></td>
+                            <td  style="15%" class="miniCartSubtotal"><span> $8.80 </span></td>
+                            <td  style="5%" class="delete"><a > x </a></td>
+                        </tr>
+                        <tr class="miniCartProduct">
+                            <td style="20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="images/product/4.jpg" alt="img"> </a> </div></td>
+                            <td  style="40%"><div class="miniCartDescription">
+                                    <h4> <a href="product-details.html"> TSHOP T shirt Black </a> </h4>
+                                    <span class="size"> 12 x 1.5 L </span>
+                                    <div class="price"> <span> $8.80 </span> </div>
+                                </div></td>
+                            <td   style="10%" class="miniCartQuantity"><a > X 1 </a></td>
+                            <td  style="15%" class="miniCartSubtotal"><span> $8.80 </span></td>
+                            <td  style="5%" class="delete"><a > x </a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <!--/.miniCartTable-->
 
                 <div class="miniCartFooter  miniCartFooterInMobile text-right">
@@ -442,78 +386,78 @@
         <div class="nav navbar-nav navbar-right hidden-xs">
             <div class="dropdown  cartMenu "> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-shopping-cart"> </i> <span class="cartRespons"> Cart ($210.00) </span> <b class="caret"> </b> </a>
                 <div class="dropdown-menu col-lg-4 col-xs-12 col-md-4 ">
-                    <div class="w100 miniCartTable scroll-pane mCustomScrollbar _mCS_2" style="overflow: hidden;"><div class="mCustomScrollBox mCS-dark-2" id="mCSB_2" style="position: relative; height: 100%; overflow: hidden; max-width: 100%; max-height: 300px;"><div class="mCSB_container mCS_no_scrollbar" style="position: relative; top: 0px;">
+                    <div class="w100 miniCartTable scroll-pane mCustomScrollbar _mCS_2"><div class="mCustomScrollBox mCS-dark-2" id="mCSB_2"><div class="mCSB_container mCS_no_scrollbar">
                                 <table>
                                     <tbody>
                                     <tr class="miniCartProduct">
-                                        <td style="width:20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="{{ asset('images/3.jpg') }}" alt="img"> </a> </div></td>
-                                        <td style="width:40%"><div class="miniCartDescription">
+                                        <td  class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="{{ asset('images/3.jpg') }}" alt="img"> </a> </div></td>
+                                        <td ><div class="miniCartDescription">
                                                 <h4> <a href="product-details.html"> TSHOP Tshirt DO9 </a> </h4>
                                                 <span class="size"> 12 x 1.5 L </span>
                                                 <div class="price"> <span> $22 </span> </div>
                                             </div></td>
-                                        <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                        <td style="width:15%" class="miniCartSubtotal"><span> $33 </span></td>
-                                        <td style="width:5%" class="delete"><a> x </a></td>
+                                        <td  class="miniCartQuantity"><a> X 1 </a></td>
+                                        <td  class="miniCartSubtotal"><span> $33 </span></td>
+                                        <td  class="delete"><a> x </a></td>
                                     </tr>
                                     <tr class="miniCartProduct">
-                                        <td style="width:20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="{{ asset('images/2.jpg') }}" alt="img"> </a> </div></td>
-                                        <td style="width:40%"><div class="miniCartDescription">
+                                        <td  class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="{{ asset('images/2.jpg') }}" alt="img"> </a> </div></td>
+                                        <td><div class="miniCartDescription">
                                                 <h4> <a href="product-details.html"> TShir TSHOP 09 </a> </h4>
                                                 <span class="size"> 12 x 1.5 L </span>
                                                 <div class="price"> <span> $15 </span> </div>
                                             </div></td>
-                                        <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                        <td style="width:15%" class="miniCartSubtotal"><span> $120 </span></td>
-                                        <td style="width:5%" class="delete"><a> x </a></td>
+                                        <td  class="miniCartQuantity"><a> X 1 </a></td>
+                                        <td  class="miniCartSubtotal"><span> $120 </span></td>
+                                        <td  class="delete"><a> x </a></td>
                                     </tr>
                                     <tr class="miniCartProduct">
-                                        <td style="width:20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="{{ asset('images/5.jpg') }}" alt="img"> </a> </div></td>
-                                        <td style="width:40%"><div class="miniCartDescription">
+                                        <td class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="{{ asset('images/5.jpg') }}" alt="img"> </a> </div></td>
+                                        <td><div class="miniCartDescription">
                                                 <h4> <a href="product-details.html"> Tshir 2014 </a> </h4>
                                                 <span class="size"> 12 x 1.5 L </span>
                                                 <div class="price"> <span> $30 </span> </div>
                                             </div></td>
-                                        <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                        <td style="width:15%" class="miniCartSubtotal"><span> $80 </span></td>
-                                        <td style="width:5%" class="delete"><a> x </a></td>
+                                        <td class="miniCartQuantity"><a> X 1 </a></td>
+                                        <td class="miniCartSubtotal"><span> $80 </span></td>
+                                        <td class="delete"><a> x </a></td>
                                     </tr>
                                     <tr class="miniCartProduct">
-                                        <td style="width:20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="{{ asset('images/3.jpg') }}" alt="img"> </a> </div></td>
-                                        <td style="width:40%"><div class="miniCartDescription">
+                                        <td class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="{{ asset('images/3.jpg') }}" alt="img"> </a> </div></td>
+                                        <td><div class="miniCartDescription">
                                                 <h4> <a href="product-details.html"> TSHOP T shirt DO20 </a> </h4>
                                                 <span class="size"> 12 x 1.5 L </span>
                                                 <div class="price"> <span> $15 </span> </div>
                                             </div></td>
-                                        <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                        <td style="width:15%" class="miniCartSubtotal"><span> $55 </span></td>
-                                        <td style="width:5%" class="delete"><a> x </a></td>
+                                        <td class="miniCartQuantity"><a> X 1 </a></td>
+                                        <td class="miniCartSubtotal"><span> $55 </span></td>
+                                        <td class="delete"><a> x </a></td>
                                     </tr>
                                     <tr class="miniCartProduct">
-                                        <td style="width:20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="{{ asset('images/4.jpg') }}" alt="img"> </a> </div></td>
-                                        <td style="width:40%"><div class="miniCartDescription">
+                                        <td  class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="{{ asset('images/4.jpg') }}" alt="img"> </a> </div></td>
+                                        <td ><div class="miniCartDescription">
                                                 <h4> <a href="product-details.html"> T shirt Black </a> </h4>
                                                 <span class="size"> 12 x 1.5 L </span>
                                                 <div class="price"> <span> $44 </span> </div>
                                             </div></td>
-                                        <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                        <td style="width:15%" class="miniCartSubtotal"><span> $40 </span></td>
-                                        <td style="width:5%" class="delete"><a> x </a></td>
+                                        <td class="miniCartQuantity"><a> X 1 </a></td>
+                                        <td class="miniCartSubtotal"><span> $40 </span></td>
+                                        <td class="delete"><a> x </a></td>
                                     </tr>
                                     <tr class="miniCartProduct">
-                                        <td style="width:20%" class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="{{ asset('images/winter.jpg') }}" alt="img"> </a> </div></td>
-                                        <td style="width:40%"><div class="miniCartDescription">
+                                        <td class="miniCartProductThumb"><div> <a href="product-details.html"> <img src="{{ asset('images/winter.jpg') }}" alt="img"> </a> </div></td>
+                                        <td ><div class="miniCartDescription">
                                                 <h4> <a href="product-details.html"> G Star T shirt </a> </h4>
                                                 <span class="size"> 12 x 1.5 L </span>
                                                 <div class="price"> <span> $80 </span> </div>
                                             </div></td>
-                                        <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                        <td style="width:15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                                        <td style="width:5%" class="delete"><a> x </a></td>
+                                        <td  class="miniCartQuantity"><a> X 1 </a></td>
+                                        <td  class="miniCartSubtotal"><span> $8.80 </span></td>
+                                        <td  class="delete"><a> x </a></td>
                                     </tr>
                                     </tbody>
                                 </table>
-                            </div><div class="mCSB_scrollTools" style="position: absolute; display: none;"><div class="mCSB_draggerContainer"><div class="mCSB_dragger" style="position: absolute; top: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="position:relative;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
+                            </div><div class="mCSB_scrollTools"><div class="mCSB_draggerContainer"><div class="mCSB_dragger"  oncontextmenu="return false;"><div class="mCSB_dragger_bar"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
                     <!--/.miniCartTable-->
 
                     <div class="miniCartFooter text-right">
@@ -567,7 +511,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="control-group"> <a class="fb_button btn  btn-block btn-lg " href="http://codepeoples.com/tanimdesign.net/tshop/html/index.html#"> SIGNUP WITH FACEBOOK </a> </div>
-                        <h5 style="padding:10px 0 10px 0;" class="text-center"> OR </h5>
+                        <h5 class="text-center"> OR </h5>
                         <div class="form-group reg-username">
                             <div>
                                 <input name="login" class="form-control input" size="20" placeholder="Enter Username" type="text">
@@ -586,8 +530,8 @@
                         <div class="form-group">
                             <div>
                                 <div class="checkbox login-remember">
-                                    <label style="display: none;">
-                                        <input name="rememberme" id="rememberme" value="forever" checked="checked" type="checkbox" style="display: none;">
+                                    <label>
+                                        <input name="rememberme" id="rememberme" value="forever" checked="checked" type="checkbox">
                                         Remember Me </label><span class="icr enabled checked" id="icr-2"><span class="icr__checkbox"></span><span class="icr__text">Remember Me</span></span>
                                 </div>
                             </div>
@@ -637,8 +581,8 @@
                         <div class="form-group">
                             <div>
                                 <div class="checkbox login-remember">
-                                    <label style="display: none;">
-                                        <input name="rememberme" value="forever" checked="checked" type="checkbox" style="display: none;">
+                                    <label>
+                                        <input name="rememberme" value="forever" checked="checked" type="checkbox">
                                         Remember Me </label><span class="icr enabled checked" id="icr-1"><span class="icr__checkbox"></span><span class="icr__text">Remember Me</span></span>
                                 </div>
                             </div>
@@ -687,6 +631,81 @@
     {% endblock %}
             {% block content %}
             {% endblock %}
+
+    {% block collections %}
+        <hr class="no-margin-top">
+
+        <div class="width100 section-block ">
+            <div class="row featureImg">
+                <div class="col-md-3 col-sm-3 col-xs-6"> <a href="category.html">
+                        <img src="{{ asset('images/new-collection-1.jpg') }}" class="img-responsive" alt="img"></a> </div>
+                <div class="col-md-3 col-sm-3 col-xs-6"> <a href="category.html">
+                        <img src="{{ asset('images/new-collection-2.jpg') }}" class="img-responsive" alt="img"></a> </div>
+                <div class="col-md-3 col-sm-3 col-xs-6"> <a href="category.html">
+                        <img src="{{ asset('images/new-collection-3.jpg') }}" class="img-responsive" alt="img"></a> </div>
+                <div class="col-md-3 col-sm-3 col-xs-6"> <a href="category.html">
+                        <img src="{{ asset('images/new-collection-4.jpg') }}" class="img-responsive" alt="img"></a> </div>
+            </div>
+            <!--/.row-->
+        </div>
+    {% endblock %}
+
+    {% block brands %}
+        <div class="width100 section-block">
+            <h3 class="section-title"><span> BRAND</span>
+                <a id="nextBrand" class="link pull-right carousel-nav">
+                    <i class="fa fa-angle-right"></i></a>
+                <a id="prevBrand" class="link pull-right carousel-nav"> <i class="fa fa-angle-left"></i> </a>
+            </h3>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="no-margin brand-carousel owl-carousel owl-theme">
+                        <div class="owl-wrapper-outer"><div class="owl-wrapper">
+                                <div class="owl-item" >
+                                    <li> <a>
+                                            <img src="{{ asset('images/1.gif') }}" alt="img"></a>
+                                    </li></div>
+                                <div class="owl-item">
+                                    <li>
+                                        <img src="{{ asset('images/2.png') }}" alt="img"></li>
+                                </div>
+                                <div class="owl-item" ><li><img src="{{ asset('images/3.png') }}" alt="img"></li></div>
+                                <div class="owl-item" ><li><img src="{{ asset('images/4.png') }}" alt="img"></li></div>
+                                <div class="owl-item"><li><img src="{{ asset('images/5.png') }}" alt="img"></li></div>
+                                <div class="owl-item"><li><img src="{{ asset('images/6.png') }}" alt="img"></li></div>
+                                <div class="owl-item"><li><img src="{{ asset('images/7.png') }}" alt="img"></li></div>
+                                <div class="owl-item"><li><img src="{{ asset('images/8.png') }}" alt="img"></li></div>
+                                <div class="owl-item"><li><img src="{{ asset('images/1.gif') }}" alt="img"></li></div>
+                                <div class="owl-item"><li><img src="{{ asset('images/2.png') }}" alt="img"></li></div>
+                                <div class="owl-item"><li><img src="{{ asset('images/3.png') }}" alt="img"></li></div>
+                                <div class="owl-item"><li><img src="{{ asset('images/4.png') }}" alt="img"></li></div>
+                                <div class="owl-item"><li><img src="{{ asset('images/5.png') }}" alt="img"></li></div>
+                                <div class="owl-item"><li><img src="{{ asset('images/6.png') }}" alt="img"></li></div>
+                                <div class="owl-item"><li><img src="{{ asset('images/7.png') }}" alt="img"></li></div>
+                                <div class="owl-item"><li><img src="{{ asset('images/8.png') }}" alt="img"></li></div>
+                            </div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </ul>
+                </div>
+            </div>
+            <!--/.row-->
+        </div>
+    {% endblock %}
+
 
     {% block footer %}
 
@@ -790,10 +809,6 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 
-
-    {% javascripts '@HorusFrontBundle/Resources/public/js/pace.min.js' %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
 
     {% javascripts '@HorusFrontBundle/Resources/public/js/jquery.cycle2.min.js' %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
