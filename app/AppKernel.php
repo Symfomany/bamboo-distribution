@@ -32,6 +32,7 @@ class AppKernel extends Kernel
             new \Ornicar\GravatarBundle\OrnicarGravatarBundle(),
             new \PaymentSuite\PaymentCoreBundle\PaymentCoreBundle(),
             new \PaymentSuite\FreePaymentBundle\FreePaymentBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 
             /**
              * Elcodi core bundles
