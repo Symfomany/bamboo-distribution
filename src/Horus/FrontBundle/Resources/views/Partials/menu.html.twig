@@ -3,19 +3,16 @@
 {% block menu %}
     <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
-        <li class="active"> <a href="#"> Home </a> </li>
-        <li class="dropdown megamenu-fullwidth"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"> New Products <b class="caret"> </b> </a>
+        <li class="active"> <a href="#"> {{ "Home"|trans }} </a> </li>
+        <li class="dropdown megamenu-fullwidth"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"> {{ "New Products"|trans }} <b class="caret"> </b> </a>
             <ul class="dropdown-menu">
                 <li class="megamenu-content ">
                     <ul class="col-lg-3  col-sm-3 col-md-3 unstyled noMarginLeft newCollectionUl">
                         <li class="no-border">
-                            <p class="promo-1"> <strong> NEW COLLECTION </strong> </p>
+                            <p class="promo-1"> <strong> {{ "New Collection"|trans }} </strong> </p>
                         </li>
-                        <li> <a href="category.html"> ALL NEW PRODUCTS </a> </li>
-                        <li> <a href="category.html"> NEW TOPS </a> </li>
-                        <li> <a href="category.html"> NEW SHOES </a> </li>
-                        <li> <a href="category.html"> NEW TSHIRT </a> </li>
-                        <li> <a href="category.html"> NEW TSHOP </a> </li>
+                        <li> <a href="category.html"> {{ "All new products"|trans }} </a> </li>
+                        <li> <a href="category.html"> {{ "New tops"|trans }} </a> </li>
                     </ul>
                     <ul class="col-lg-3  col-sm-3 col-md-3  col-xs-4">
                         <li> <a class="newProductMenuBlock" href="product-details.html"> <img class="img-responsive" src="{{ asset('images/site/promo1.jpg') }}" alt="product"> <span class="ProductMenuCaption"> <i class="fa fa-caret-right"> </i> JEANS </span> </a> </li>
@@ -271,7 +268,7 @@
     {% block search %}
         <div class="search-full text-right"> <a class="pull-right search-close"> <i class=" fa fa-times-circle"> </i> </a>
             <div class="searchInputBox pull-right">
-                <input type="search" data-searchurl="search?=" name="q" placeholder="start typing and hit enter to search" class="search-input">
+                <input type="search" data-searchurl="search?=" name="q" placeholder="{{ "Search product, category, tag ..."|trans }}" class="search-input">
                 <button class="btn-nobg search-btn" type="submit"> <i class="fa fa-search"> </i> </button>
             </div>
         </div>

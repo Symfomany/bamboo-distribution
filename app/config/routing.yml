@@ -7,59 +7,6 @@ horus_admin:
     prefix:   /administration
 
 #
-# Imported routes from bamboo-admin
-#
-admin_core:
-    resource: "@AdminCoreBundle/Resources/config/routing.yml"
-    prefix: /admin
-
-admin_user:
-    resource: "@AdminUserBundle/Resources/config/routing.yml"
-    prefix: /admin
-
-admin_cart:
-    resource: "@AdminCartBundle/Resources/config/routing.yml"
-    prefix: /admin
-
-admin_banner:
-    resource: "@AdminBannerBundle/Resources/config/routing.yml"
-    prefix: /admin
-
-admin_coupon:
-    resource: "@AdminCouponBundle/Resources/config/routing.yml"
-    prefix: /admin
-
-admin_currency:
-    resource: "@AdminCurrencyBundle/Resources/config/routing.yml"
-    prefix: /admin
-
-admin_attribute:
-    resource: "@AdminAttributeBundle/Resources/config/routing.yml"
-    prefix: /admin
-
-admin_product:
-    resource: "@AdminProductBundle/Resources/config/routing.yml"
-    prefix: /admin
-
-admin_rule:
-    resource: "@AdminRuleBundle/Resources/config/routing.yml"
-    prefix: /admin
-
-admin_media:
-    resource: "@AdminMediaBundle/Resources/config/routing.yml"
-    prefix: /admin
-
-admin_newsletter:
-    resource: "@AdminNewsletterBundle/Resources/config/routing.yml"
-    prefix: /admin
-
-admin_login_check:
-    path:  /admin/login_check
-
-admin_logout:
-    path: /admin/logout
-
-#
 # Imported routes from bamboo-store
 #
 store_core:

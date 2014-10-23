@@ -1,3 +1,7 @@
-horus_admin_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: HorusAdminBundle:Default:index }
+horus_admin_dashboard:
+    path:     /
+    defaults: { _controller: HorusAdminBundle:Main:dashboard }
+
+horus_admin_login:
+    path:     /login
+    defaults: { _controller: HorusAdminBundle:Security:login }

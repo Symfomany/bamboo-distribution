@@ -33,6 +33,7 @@ class AppKernel extends Kernel
             new \PaymentSuite\PaymentCoreBundle\PaymentCoreBundle(),
             new \PaymentSuite\FreePaymentBundle\FreePaymentBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new \FOS\UserBundle\FOSUserBundle(),
 
             /**
              * Elcodi core bundles

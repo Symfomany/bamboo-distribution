@@ -51,6 +51,8 @@ doctrine:
 # Assetic Configuration
 assetic:
     bundles:
+        - AdminCoreBundle
+        - HorusAdminBundle
         - HorusFrontBundle
     debug:          "%kernel.debug%"
     use_controller: false
@@ -118,6 +120,11 @@ services:
 
 
 
+#Fos User Bundle
+fos_user:
+   db_driver:     orm
+   firewall_name: main
+   user_class:    Horus\AdminBundle\Entity\User
 
 # Doctrine Extensions
 stof_doctrine_extensions:
